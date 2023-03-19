@@ -45,7 +45,7 @@ jobs:
         with:
           images: ${{ secrets.ecr_registry }}/todo-app
           tags: |
-            type=sha,prefix={{branch}}-
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push todo-app
         id: docker_build-todo-app
