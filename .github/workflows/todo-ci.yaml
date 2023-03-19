@@ -43,7 +43,7 @@ jobs:
         id: meta_todo-app
         uses: docker/metadata-action@v3
         with:
-          images: ${{ steps.login-ecr.outputs.registry }}/${{ github.repository }}/todo-app
+          images: ${{ secrets.ecr_registry }}/todo-app
           tags: |
             type=sha,prefix={{branch}}-
 
