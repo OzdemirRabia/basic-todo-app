@@ -1,6 +1,8 @@
 name: Build todo-app
 on:
   push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +35,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
           args: 'get-login --no-include-email --region ${AWS_REGION}'
-          
+
       - name: 'Docker Login'
         run: ${{ steps. ecr-login.outputs.login-string }}
 
